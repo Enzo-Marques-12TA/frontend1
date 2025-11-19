@@ -1,6 +1,3 @@
-const button = document.querySelector("button")
-button.addEventListener("click", receiveData)
-
 async function receiveData(){
     const persons = await fetch("http://localhost:3333").then(response => response.json())
 
