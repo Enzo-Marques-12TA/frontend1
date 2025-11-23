@@ -4,7 +4,6 @@ button.onclick = (event) => {
     signUpEagle()
 }
 
-
 async function signUpEagle() {
     const name = document.querySelector("#name").value
     const email = document.querySelector("#email").value
@@ -12,33 +11,30 @@ async function signUpEagle() {
     const nickname = document.querySelector("#nickname").value
     const password = document.querySelector("#password").value
 
-    if (name === "" || email === "" || age === "" || nickname === ""){
-        alert("Preencha TODAS as informações!")
+
+    if(name === "" || email === "" || age === "" || nickname === "" || password === "") {
+        alert("Preencha todas as informações")
         return
     }
 
     const user = {
-        name,
+        name, 
         email,
-        age,
+        age, 
         nickname,
         password
     }
 
-    console.log(user)
-
-    //enviar o user para o backend, o video cortou abruptamente, mas tem o próximo
-    const response = await fetch("http://localhost:3333/cadastrar", {
-        method: "POST",
+    const response = await fetch("http:/localhost:3333/cadastrar", {
+        method: "POST", 
         headers: {
-        "Content-Type": "application/json"
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify({ user  })
+        body: JSON.stringify({ user })
+
     }).then(response => response.json())
 
-    const { message } = response
-
-    alert(message)
+    alert(response.mensage)
 
     window.location.href = "../index.html"
 }

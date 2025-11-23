@@ -1,9 +1,10 @@
-async function receiveData(){
-    const persons = await fetch("http://localhost:3333").then(response => response.json())
+async function receveData() {
+    const users = await fetch("http://localhost:3333").then(response => response.json())
+    
+    users.map(person => {
 
-    persons.map(person => {
         document.querySelector("main").innerHTML += `
-         <section>
+        <section>
             <h2>Nome: ${person.name}</h2>
             <p>E-mail: ${person.email}</p>
             <p>Idade: ${person.age}</p>
