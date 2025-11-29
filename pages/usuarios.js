@@ -1,4 +1,4 @@
-async function receveData() {
+async function receiveData() {
     const users = await fetch("http://localhost:3333").then(response => response.json())
     
     users.map(person => {
@@ -13,3 +13,5 @@ async function receveData() {
         `
     })
 }
+
+receiveData()
