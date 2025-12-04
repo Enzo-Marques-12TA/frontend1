@@ -31,7 +31,18 @@ async function login() {
 
     console.log(response)
 
+    if(response.message){
+        alert(response.message)
+        window.location.reload()
+        return
+    }
+
+    const {id, name} = response
+
+    sessionStorage.setItem("user", JSON.stringify({id, name}))
+    alert("Login realizado com sucesso!")
+
   //  alert(response.message)
 
-//    window.location.href = "../index.html"
+    window.location.href = "../../index.html"
 }
